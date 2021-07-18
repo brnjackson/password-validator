@@ -1,4 +1,8 @@
-function validatePassword(password) {
+function checkLowerCase(currentLetter) {
+  return currentLetter >= 97 && currentLetter <= 122
+}
+
+function passwordLength(password) {
   if (password.length < 8) {
     return false
   }
@@ -6,19 +10,24 @@ function validatePassword(password) {
   return true
 }
 
-let lowerCaseCount = 0
-let upperCaseCount = 0
-let numberCount = 0
-let specialCharacterCount = 0
+function validatePassword(password) {
+  let length = passwordLength(password)
+  let lowerCaseCount = 0
 
-for(i = 0; i < password.length; i++) {
-  let currentLetter = password[i]
+  for(let i = 0; i < password.length; i++) {
+    let currentLetter = password[i]
 
-  if (currentLetter === a lowercase)
-    lowerCaseCount++
+    if (checkLowerCase(currentLetter)) {
+      lowerCaseCount++
+    }
+  }
+
+  return lowerCaseCount > 0 && length
 }
 
-if
+
+
+
 module.exports = validatePassword
 
 // needs 8 characters
