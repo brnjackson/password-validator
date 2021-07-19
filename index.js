@@ -14,17 +14,19 @@ function validatePassword(password) {
   let length = passwordLength(password)
   let lowerCaseCount = 0
 
-  for(let i = 0; i < password.length; i++) {
+
+  for (let i = 0; i < password.length; i++) {
     let currentLetter = password[i]
 
     if (checkLowerCase(currentLetter)) {
       lowerCaseCount++
     }
+
+    return checkLowerCase(password) && passwordLength(password)
   }
 
   return lowerCaseCount > 0 && length
 }
-
 
 
 
