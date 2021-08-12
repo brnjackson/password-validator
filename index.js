@@ -1,32 +1,38 @@
-function checkLowerCase(currentLetter) {
-  return currentLetter >= 97 && currentLetter <= 122
-}
-
-function passwordLength(password) {
-  if (password.length < 8) {
-    return false
-  }
-
-  return true
-}
-
 function validatePassword(password) {
-  let length = passwordLength(password)
-  let lowerCaseCount = 0
-
+  let lowercase = 'abcdefghijklmnopqrstuvwxyz'
+  let uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  let special = '!@#$%^&*()-_+='
+  let numbers = '1234567890'
+  
+  let validLower = false
+  let validUpper = false
+  let validNumber = false
+  let validSpecChar = false
+  let validLength = false
 
   for (let i = 0; i < password.length; i++) {
     let currentLetter = password[i]
 
-    if (checkLowerCase(currentLetter)) {
-      lowerCaseCount++
+    if (password.length >= 8) {
+      validLength = true
     }
-
-    return checkLowerCase(password) && passwordLength(password)
+    if (lowercase.includes(currentLetter)) {
+      validLower = true
+    }
+    if (uppercase.includes(currentLetter)) {
+      validUpper = true
+    }
+    if (numbers.includes(currentLetter)) {
+      validNumber = true
+    }
+    if (special.includes(currentLetter)) {
+      validSpecChar = true
+    }
   }
 
-  return lowerCaseCount > 0 && length
+  return validSpecChar && validNumber && validUpper && validLength && validLower
 }
+
 
 
 
